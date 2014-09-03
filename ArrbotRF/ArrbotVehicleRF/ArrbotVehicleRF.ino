@@ -127,9 +127,16 @@ void loop()
        Serial.print(joystick[i]);
        Serial.print(" ");
      }
+     
+     // Joystick is sending bad data
+     if (joystick[0] < 0 or joystick[1] < 0
+       or joystick[0] > 255 or joystick[1] > 255) {
+         Serial.println("Skipping out of range joystick data.");
+         left = LHALT; right = RHALT;
+     }
 
      // CRUDE MAPPING from joystick to servos.
-     if (joystick[0] < 30) {
+     else if (joystick[0] < 30) {
        Serial.println("TURN LEFT");
          left = LBK; right = RFWD;     // left
         // try to keep left tread from coming off
