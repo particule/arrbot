@@ -55,7 +55,7 @@ setup() {
    
   // Write channel and payload config then power up reciver.
   // NB: Make sure channel is legal in your area.
-  // Mirf.channel = 10;
+  Mirf.channel = 10;
 
   Mirf.config();
   Mirf.setTADDR((byte *)"serv1");

@@ -84,6 +84,7 @@ void setup() {
   Mirf.payload = 5 * sizeof(int);
 
  // Write channel and payload config then power up reciver.
+ Mirf.channel = 10;
  Mirf.config();
 
 #define SERVO 1
@@ -242,7 +243,7 @@ void loop()
      // Blink LED every several successful receives
      if ( (nsuccess % 5) == 0) {
        led = (led == HIGH) ? LOW : HIGH;
-       Serial.print("led = ");
+       Serial.print("my led = ");
        Serial.println(led);
        digitalWrite(ledPin, led);
      }
